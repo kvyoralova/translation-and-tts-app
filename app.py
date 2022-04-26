@@ -8,7 +8,6 @@
 import streamlit as st
 from googletrans import Translator
 from gtts import gTTS
-import IPython.display as ipd  
 
 # It asks the user to type in some text
 text = st.text_input("Give me some text you want me to translate in English and read for you: ")
@@ -22,5 +21,5 @@ text_to_speech = text_to_translate.text
 tts=gTTS(text=text_to_speech, lang='en')
 tts.save('audio.mp3')
 
-print("Your text would sound like this in English:")
+st.write("Your text would sound like this in English:")
 st.audio('audio.mp3')
