@@ -2,7 +2,7 @@
 #Reuse your code from Task 4 to make it into a Streamlit app. Make sure you make the following changes:
 
 #Add gtts to requirements.txt file on github (see Class05 slides if you have no idea what i am talking about)
-#Replace input() with st.input(...)
+#Replace input() with st.text_input(...)
 #Replace ipd.display(ipd.Audio(...) with st.audio(...)
 
 import streamlit as st
@@ -14,12 +14,12 @@ text = st.text_input("Give me some text you want me to translate in English and 
 # It then converts that text in a certain langauge
 translator = Translator()
 text_to_translate = translator.translate(text, dest='en') 
-#print(text_to_speech.text)
+st.write("Your translated text is:", text_to_speech.text)
 text_to_speech = text_to_translate.text
 
 # it converts the translated text to speech.
 tts=gTTS(text=text_to_speech, lang='en')
 tts.save('audio.mp3')
 
-st.write("Your text would sound like this in English:")
+st.write("Your trarnslated text would sound like this in English:")
 st.audio('audio.mp3')
