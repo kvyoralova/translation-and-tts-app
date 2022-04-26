@@ -11,19 +11,20 @@ from gtts import gTTS
 
 # It asks the user to type in some text
 st.write("Give me some text you want me to translate in English and read for you:")
-user_text = st.text_input("Put your text here")
-#if user_text =! " " then do smth, otherwise do
-# It then converts that text in a certain langauge
-translator = Translator()
-text_to_translate = translator.translate(text=user_text, dest='en') 
-st.write("Your translated text is:", text_to_translate.text)
-text_to_speech = text_to_translate.text
+user_text = st.text_input("Put your text here", " ")
 
-# it converts the translated text to speech.
-tts=gTTS(text=text_to_speech, lang='en')
-tts.save('audio.mp3')
-
-st.write("Your translated text would sound like this in English:")
-audio_file = open('audio.mp3', "rb")
-st.audio(data=audio_file, format="audio/mp3", start_time=0)
-st.download_button(label="Download audio file", data=audio_file, file_name='audio.mp3',mime='audio/mp3')
+if user_text =! " ":
+  # It then converts that text in a certain langauge
+  translator = Translator()
+  text_to_translate = translator.translate(text=user_text, dest='en') 
+  st.write("Your translated text is:", text_to_translate.text)
+  text_to_speech = text_to_translate.text
+  # it converts the translated text to speech.
+  tts=gTTS(text=text_to_speech, lang='en')
+  tts.save('audio.mp3')
+  st.write("Your translated text would sound like this in English:")
+  audio_file = open('audio.mp3', "rb")
+  st.audio(data=audio_file, format="audio/mp3", start_time=0)
+  st.download_button(label="Download audio file", data=audio_file, file_name='audio.mp3',mime='audio/mp3')
+else:
+  pass
