@@ -11,7 +11,7 @@ from gtts import gTTS
 import IPython.display as ipd  
 
 # It asks the user to type in some text
-text = st.input("Give me some text you want me to translate in English and read for you: ")
+text = st.text_input("Give me some text you want me to translate in English and read for you: ")
 # It then converts that text in a certain langauge
 translator = Translator()
 text_to_translate = translator.translate(text, dest='en') 
