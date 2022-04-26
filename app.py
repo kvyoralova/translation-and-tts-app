@@ -22,4 +22,5 @@ tts=gTTS(text=text_to_speech, lang='en')
 tts.save('audio.mp3')
 
 st.write("Your trarnslated text would sound like this in English:")
-st.audio('audio.mp3')
+audio_file = open('audio.mp3', "rb")
+st.audio(data=audio_file, format="audio/mp3", start_time=0)
