@@ -13,7 +13,7 @@ from gtts import gTTS
 st.write("Give me some text you want me to translate in English and read for you:")
 user_text = st.text_input("Put your text here", " ")
 
-if user_text =! " ":
+if user_text != " ":
   # It then converts that text in a certain langauge
   translator = Translator()
   text_to_translate = translator.translate(text=user_text, dest='en') 
