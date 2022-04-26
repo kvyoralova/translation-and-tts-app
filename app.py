@@ -10,10 +10,10 @@ from googletrans import Translator
 from gtts import gTTS
 
 # It asks the user to type in some text
-text = st.text_input("Give me some text you want me to translate in English and read for you: ")
+user_text = st.text_input("Give me some text you want me to translate in English and read for you: ")
 # It then converts that text in a certain langauge
 translator = Translator()
-text_to_translate = translator.translate(text, dest='en') 
+text_to_translate = translator.translate(text=user_text, dest='en') 
 st.write("Your translated text is:", text_to_speech.text)
 text_to_speech = text_to_translate.text
 
