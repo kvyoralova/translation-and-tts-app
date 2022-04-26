@@ -16,7 +16,7 @@ user_text = st.text_input("Put your text here")
 # It then converts that text in a certain langauge
 translator = Translator()
 text_to_translate = translator.translate(text=user_text, dest='en') 
-st.write("Your translated text is:", text_to_speech.text)
+st.write("Your translated text is:", text_to_translate.text)
 text_to_speech = text_to_translate.text
 
 # it converts the translated text to speech.
